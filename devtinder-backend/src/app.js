@@ -20,7 +20,7 @@ const app = express();
 
 const server = http.createServer(app);
 initialiseSocket(server);
-const __dirname = path.resolve();
+const dirname = path.resolve();
 
 
 app.use(express.json());
@@ -40,9 +40,9 @@ app.use("/chat", chatRouter);
 app.use("/payment", paymentRouter);
 
 if (process.env.NODE_ENV !== "development") {
-  app.use(express.static(path.join((__dirname, "../devtinder-ui/dist"))));
+  app.use(express.static(path.join((dirname, "../devtinder-ui/dist"))));
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../devtinder-ui", "dist", "index.html"));
+    res.sendFile(path.join(dirname, "../devtinder-ui", "dist", "index.html"));
   });
 }
 
