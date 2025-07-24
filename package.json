@@ -8,6 +8,7 @@
     "build": "npm install --prefix devtinder-backend && npm install --prefix devtinder-ui && npm run build --prefix devtinder-ui",
     "start": "npm run start --prefix devtinder-backend"
   },
+  "type": "commonjs",
   "keywords": [],
   "author": "",
   "license": "ISC"
