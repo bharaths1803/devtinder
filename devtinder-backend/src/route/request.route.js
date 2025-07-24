@@ -10,7 +10,7 @@ console.log("✅ Loading request.route.js");
 
 const router = express.Router();
 
-router.post("/send", userAuth, sendRequest);
-router.post("/review", userAuth, reviewRequest);
+router.post("/send/:status/:toUserId", userAuth, sendRequest);
+router.post("/review/:status/:requestId", userAuth, reviewRequest);
 
 module.exports = router;

@@ -21,10 +21,6 @@ const app = express();
 const server = http.createServer(app);
 initialiseSocket(server);
 
-app.use((req, res, next) => {
-  console.log("➡️ Incoming request:", req.method, req.path);
-  next();
-});
 
 const dirname = path.resolve();
 
@@ -38,19 +34,23 @@ app.use(
   })
 );
 
-app.use("/auth", authRouter);
-app.use("/profile", profileRouter);
-app.use("/request", requestRouter);
-app.use("/user", userRouter);
-app.use("/chat", chatRouter);
-app.use("/payment", paymentRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/profile", profileRouter);
+app.use("/api/request", requestRouter);
+app.use("/api/user", userRouter);
+app.use("/api/chat", chatRouter);
+app.use("/api/payment", paymentRouter);
 
-if (process.env.NODE_ENV !== "development") {
-  app.use(express.static(path.join((dirname, "../devtinder-ui/dist"))));
+// process.env.NODE_ENV === "production"
+
+if (true) {
+  app.use(express.static(path.join(dirname, "../devtinder-ui/dist")));
+
   app.get("*", (req, res) => {
     res.sendFile(path.join(dirname, "../devtinder-ui", "dist", "index.html"));
   });
 }
+
 
 
 connectDb()

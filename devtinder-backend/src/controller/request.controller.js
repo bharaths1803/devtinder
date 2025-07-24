@@ -50,7 +50,7 @@ const sendRequest = async (req, res) => {
 
 const reviewRequest = async (req, res) => {
   try {
-    const { status, requestId } = req.params;
+    const { status, requestId } = req.body;
 
     const allowedRequestStatuses = ["accepted", "rejected"];
     if (!allowedRequestStatuses.includes(status))

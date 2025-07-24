@@ -7,6 +7,6 @@ console.log("✅ Loading chat.route.js");
 
 const router = Router();
 
-router.get("/dm", userAuth, fetchMessages);
+router.get("/:toUserId", userAuth, fetchMessages);
 
 module.exports = router;
