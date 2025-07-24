@@ -4,6 +4,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const http = require("http");
 const cors = require("cors");
+const path = require("path")
 const { connectDb } = require("./config/database");
 
 const authRouter = require("./route/auth.route.js");
