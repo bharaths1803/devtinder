@@ -20,6 +20,12 @@ const app = express();
 
 const server = http.createServer(app);
 initialiseSocket(server);
+
+app.use((req, res, next) => {
+  console.log("➡️ Incoming request:", req.method, req.path);
+  next();
+});
+
 const dirname = path.resolve();
 
 
