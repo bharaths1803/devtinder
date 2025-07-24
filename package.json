@@ -1,0 +1,14 @@
+{
+  "name": "devtinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install --prefix devtinder-backend && npm install --prefix devtinder-ui && npm run build --prefix devtinder-ui",
+    "start": "npm run start --prefix devtinder-backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
