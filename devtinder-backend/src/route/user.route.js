@@ -6,6 +6,9 @@ const {
 } = require("../controller/user.controller.js");
 const { userAuth } = require("../middlewares/auth.middleware.js");
 
+console.log("✅ Loading user.route.js");
+
+
 const router = express.Router();
 
 router.get("/connections", userAuth, getConnections);
