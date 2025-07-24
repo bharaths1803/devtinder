@@ -20,6 +20,8 @@ const app = express();
 
 const server = http.createServer(app);
 initialiseSocket(server);
+const __dirname = path.resolve();
+
 
 app.use(express.json());
 app.use(cookieParser());
