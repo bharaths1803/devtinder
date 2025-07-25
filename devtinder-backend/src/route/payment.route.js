@@ -12,6 +12,6 @@ const router = Router();
 
 router.post("/create", userAuth, createPayment);
 router.post("/webhook", validateWebhook);
-router.post("/verify", userAuth, verifyPremium);
+router.get("/verify", userAuth, verifyPremium);
 
 module.exports = router;
