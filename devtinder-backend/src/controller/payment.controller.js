@@ -86,4 +86,10 @@ const validateWebhook = async (req, res) => {
   }
 };
 
-module.exports = { createPayment, validateWebhook };
+const verifyPremium = async (req, res) => {
+  const user = req.user;
+  if (user.isPremium) return res.json({ ...user });
+  else return res.json({ ...user });
+};
+
+module.exports = { createPayment, validateWebhook, verifyPremium };

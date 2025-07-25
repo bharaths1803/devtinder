@@ -2,6 +2,7 @@ const { Router } = require("express");
 const {
   createPayment,
   validateWebhook,
+  verifyPremium,
 } = require("../controller/payment.controller");
 const { userAuth } = require("../middlewares/auth.middleware");
 
@@ -11,5 +12,6 @@ const router = Router();
 
 router.post("/create", userAuth, createPayment);
 router.post("/webhook", validateWebhook);
+router.post("/verify", userAuth, verifyPremium);
 
 module.exports = router;
