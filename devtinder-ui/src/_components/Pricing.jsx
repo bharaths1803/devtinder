@@ -12,16 +12,7 @@ const Pricing = () => {
 
     console.log("Order", order);
 
-    const {
-      keyId,
-      amount,
-      currency,
-      firstName,
-      lastName,
-      orderId,
-      notes,
-      emailId,
-    } = order.data;
+    const { keyId, amount, currency, orderId, notes } = order.data;
 
     const options = {
       key: keyId, // Replace with your Razorpay key_id
@@ -30,7 +21,6 @@ const Pricing = () => {
       name: "DevTinder",
       description: "Connect with developers",
       order_id: orderId, // This is the order_id created in the backend
-      callback_url: "http://localhost:3000/payment-success", // Your success URL
       prefill: {
         name: notes.firstName + " " + notes.lastName,
         email: notes.emailId,
