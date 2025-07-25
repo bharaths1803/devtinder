@@ -87,7 +87,7 @@ const validateWebhook = async (req, res) => {
 };
 
 const verifyPremium = async (req, res) => {
-  const user = req.user;
+  const user = req.user.toJSON();
   console.log("User", user);
   if (user.isPremium) return res.json({ ...user });
   else return res.json({ ...user });
