@@ -8,6 +8,7 @@ const Pricing = () => {
   const verifyPremium = async () => {
     const res = await axios.get(BASE_URL + "/payment/verify");
     if (res.data.isPremium) setIsPremiumUser(true);
+    console.log("Res. data", res.data);
   };
 
   const handleBuy = async (membershipType) => {
