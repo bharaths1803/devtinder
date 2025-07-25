@@ -46,15 +46,23 @@ const validateWebhook = async (req, res) => {
     console.log("REached beginnign of validate webhook");
 
     const webhookSignature = req.get("X-Razorpay-Signature");
+    console.log("REached beginnign of validate webhook 2");
+
     const isValidWebhook = validateWebhookSignature(
       JSON.stringify(req.body),
       webhookSignature,
       process.env.RAZORPAY_WEBHOOK_SECRET
     );
+    console.log("REached beginnign of validate webhook 3");
+
     if (!isValidWebhook)
       return res.status(400).json({ msg: "Invalid webhook signature" });
 
+    console.log("REached beginnign of validate webhook 4");
+
     const paymentDetails = req.body.payload.payment.entity;
+
+    console.log("REached beginnign of validate webhook 5");
 
     const payment = await paymentModel.findOne({
       orderId: paymentDetails.order_id,
@@ -62,9 +70,13 @@ const validateWebhook = async (req, res) => {
     payment.status = paymentDetails.status;
     await payment.save();
 
+    console.log("REached beginnign of validate webhook 6");
+
     const user = await userModel.findOne({ _id: payment.userId });
     user.isPremium = true;
     user.membershipType = payment.notes.membershipType;
+
+    console.log("REached beginnign of validate webhook 7");
 
     await user.save();
 
