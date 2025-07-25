@@ -76,4 +76,4 @@ const validateWebhook = async (req, res) => {
   }
 };
 
-module.exports = { createPayment };
+module.exports = { createPayment, validateWebhook };
