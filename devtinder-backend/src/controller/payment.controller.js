@@ -2,9 +2,7 @@ const paymentModel = require("../models/payment.model.js");
 const userModel = require("../models/user.model.js");
 const { membershipAmount } = require("../utils/constants.js");
 const razorpayInstance = require("../utils/razorpay.js");
-const {
-  validateWebhookSignature,
-} = require("razorpay/dist/utils/razorpay-utils");
+const { validateWebhookSignature } = require("razorpay");
 
 const createPayment = async (req, res) => {
   try {
