@@ -62,6 +62,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "Hi, I'm a dev looking for another dev.",
     },
+    isPremium: {
+      type: Boolean,
+      default: false,
+    },
+    membershipType: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
