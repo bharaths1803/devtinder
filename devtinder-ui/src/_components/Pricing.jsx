@@ -6,7 +6,9 @@ const Pricing = () => {
   const [isPremiumUser, setIsPremiumUser] = useState(false);
 
   const verifyPremium = async () => {
-    const res = await axios.get(BASE_URL + "/payment/verify");
+    const res = await axios.get(BASE_URL + "/payment/verify", {
+      withCredentials: true,
+    });
     if (res.data.isPremium) setIsPremiumUser(true);
     console.log("Res. data", res.data);
   };
